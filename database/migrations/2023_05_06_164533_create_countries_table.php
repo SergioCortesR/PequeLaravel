@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('countries', function (Blueprint $table) {
-            $table->id();//llave primaria, autoincremental, no nula, entero
+            $table->id();//primary key, auto-incremental, no nullable, integer
             $table->string('name',255);
             $table->string('iso_code_2',2);
             $table->string('iso_code_3',3);
