@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('countries', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id();//llave primaria, autoincremental, no nula, entero
+            $table->string('name',255);
+            $table->string('iso_code_2',2);
+            $table->string('iso_code_3',3);
+            $table->timestamps();//updated_at created_at
         });
     }
 
