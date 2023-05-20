@@ -19,5 +19,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('countries',[CountryController::class,'index'])->name('countries_index');//->middleware('can:countries_index');
-Route::post('countries',[CountryController::class,'store'])->name('countries_store');
+//Tambien se conoce como endpoint
+Route::controller(CountryController::class)->group(function () {
+    Route::get('countries', 'index');
+    Route::get('countries/{country}', 'show');
+    Route::post('countries', 'store');
+    Route::put('countries/{country}', 'update');
+    Route::delete('countries/{country}', 'destroy');
+    Route::get('countries/options/custom', 'custom');
+});
+
+
