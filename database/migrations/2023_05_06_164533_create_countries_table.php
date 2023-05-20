@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();//primary key, auto-incremental, no nullable, integer
             $table->string('name',255);
             $table->string('iso_code_2',2);
-            $table->string('iso_code_3',3);
+            $table->string('iso_code_3',3)->nullable();
             $table->timestamps();//updated_at created_at
+            $table->softDeletes();
         });
     }
 
