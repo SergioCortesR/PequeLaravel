@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Collaborator\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('/register', 'show');
+    Route::post('/register', 'register');
 });
